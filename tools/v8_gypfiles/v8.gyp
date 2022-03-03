@@ -1046,7 +1046,7 @@
             '<(V8_ROOT)/src/base/platform/platform-posix.h',
           ],
           'conditions': [
-            ['OS != "aix" and OS != "solaris"', {
+            ['OS != "aix" and OS != "os400" and OS != "solaris"', {
               'sources': [
                 '<(V8_ROOT)/src/base/platform/platform-posix-time.cc',
                 '<(V8_ROOT)/src/base/platform/platform-posix-time.h',
@@ -1084,6 +1084,12 @@
                 ],
               },
             }],
+          ],
+        }],
+        ['OS=="os400"', {
+          'sources': [
+            '<(V8_ROOT)/src/base/debug/stack_trace_posix.cc',
+            '<(V8_ROOT)/src/base/platform/platform-aix.cc',
           ],
         }],
         ['is_android', {
